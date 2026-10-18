@@ -4,21 +4,19 @@
 
 ## 本地安装
 
-需要 macOS/Linux 和 Bash。克隆仓库后运行：
+需要 macOS/Linux、Bash、`curl` 和 `tar`。一行安装到默认 Codex 目录：
 
 ```bash
-git clone https://github.com/kyle061/chinese-webnovel-skill.git
-cd chinese-webnovel-skill
-./install.sh
+curl -fsSL https://raw.githubusercontent.com/kyle061/chinese-webnovel-skill/main/install-remote.sh | bash
 ```
 
 默认安装到 `${CODEX_HOME:-$HOME/.codex}/skills/chinese-webnovel`。也可指定 Codex 配置目录：
 
 ```bash
-./install.sh --codex-home /path/to/codex-home
+curl -fsSL https://raw.githubusercontent.com/kyle061/chinese-webnovel-skill/main/install-remote.sh | bash -s -- --codex-home /path/to/codex-home
 ```
 
-安装完成后重新启动 Codex，再使用 `$chinese-webnovel` 调用。
+也可以克隆仓库后运行 `./install.sh`。安装完成后重新启动 Codex，再使用 `$chinese-webnovel` 调用。
 
 安装脚本不会覆盖已有目录。更新时先备份或移走已有 skill，再重新安装。
 
@@ -26,6 +24,7 @@ cd chinese-webnovel-skill
 
 - `chinese-webnovel/SKILL.md`：主工作流
 - `chinese-webnovel/references/fanqie-workflow.md`：番茄投稿准备、签约/推荐跟踪与同步发布边界
+- `install-remote.sh`：一行下载安装入口；`install.sh`：本地安装器
 - `tests/behavior-cases.md`：行为验收场景
 - `功能汇总.md`：功能说明及前期检索到的同类项目摘要
 

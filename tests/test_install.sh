@@ -19,3 +19,14 @@ fi
 
 printf 'PASS: isolated install copies all required skill files.\n'
 printf 'PASS: repeat install refuses to overwrite existing content.\n'
+
+archive="$temp_root/package.tar.gz"
+tar -czf "$archive" --exclude=.git -C "$repo_dir" .
+TEST_ARCHIVE_PATH="$archive" \
+CHINESE_WEBNOVEL_ARCHIVE_URL=mock://local-test \
+PATH="$repo_dir/tests/fake-bin:$PATH" \
+  "$repo_dir/install-remote.sh" --codex-home "$temp_root/remote-codex-home"
+remote_installed="$temp_root/remote-codex-home/skills/chinese-webnovel"
+test -f "$remote_installed/SKILL.md"
+test -f "$remote_installed/references/fanqie-workflow.md"
+printf 'PASS: one-line installer downloads and installs the skill archive.\n'
