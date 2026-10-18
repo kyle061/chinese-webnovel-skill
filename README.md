@@ -7,7 +7,7 @@
 需要 macOS/Linux 和 Bash。克隆仓库后运行：
 
 ```bash
-git clone https://github.com/OWNER/chinese-webnovel-skill.git
+git clone https://github.com/kyle061/chinese-webnovel-skill.git
 cd chinese-webnovel-skill
 ./install.sh
 ```
